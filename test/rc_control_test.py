@@ -1,3 +1,29 @@
+
+Skip to content
+This repository
+
+    Pull requests
+    Issues
+    Marketplace
+    Gist
+
+    @pratvdev
+
+1
+1
+
+    4
+
+Sashulik/Detroit-Autonomous-Vehicle-Group
+Code
+Issues 0
+Pull requests 0
+Projects 0
+Wiki
+Detroit-Autonomous-Vehicle-Group/test/rc_control_test.py
+abfbfcc 7 days ago
+@kamal94 kamal94 Added a python script to find ports automatically on the device
+112 lines (89 sloc) 2.96 KB
 __author__ = 'zhengwang'
 
 import time
@@ -63,49 +89,76 @@ class RCTest(object):
 
                 time.sleep(.001)
 
-def move_car(key_input, ser):
-    # complex orders
-    if key_input[pygame.K_UP] and key_input[pygame.K_RIGHT]:
-        print("Forward Right")
-        ser.write(b'6')
 
-    elif key_input[pygame.K_UP] and key_input[pygame.K_LEFT]:
-        print("Forward Left")
-        ser.write(b'7')
+#***Old Function. Replacing this function for move the car by itself***#
+				
+#def move_car(key_input, ser):
+#    # complex orders
+#    if key_input[pygame.K_UP] and key_input[pygame.K_RIGHT]:
+#        print("Forward Right")
+#        ser.write(b'6')
+#
+#    elif key_input[pygame.K_UP] and key_input[pygame.K_LEFT]:
+#        print("Forward Left")
+#        ser.write(b'7')
+#
+#    elif key_input[pygame.K_DOWN] and key_input[pygame.K_RIGHT]:
+#        print("Reverse Right")
+#        ser.write(b'8')
+#
+#   elif key_input[pygame.K_DOWN] and key_input[pygame.K_LEFT]:
+#        print("Reverse Left")
+#        ser.write(b'9')
+#
+#    # simple orders
+#    elif key_input[pygame.K_UP]:
+#        print("Forward")
+#        ser.write(b'1')
+#
+#    elif key_input[pygame.K_DOWN]:
+#        print("Reverse")
+#        ser.write(b'2')
+#
+#    elif key_input[pygame.K_RIGHT]:
+#        print("Right")
+#        ser.write(b'3')
+#
+#    elif key_input[pygame.K_LEFT]:
+#        print("Left")
+#        ser.write(b'4')
+#
+#    # exit
+#    elif key_input[pygame.K_x] or key_input[pygame.K_q]:
+#        print('Exit')
+#        self.send_inst = False
+#        ser.write(b'0')
+#        self.ser.close()
+#    else:
+#       ser.write(b'0')
 
-    elif key_input[pygame.K_DOWN] and key_input[pygame.K_RIGHT]:
-        print("Reverse Right")
-        ser.write(b'8')
+#***New Move Car Function***#
 
-    elif key_input[pygame.K_DOWN] and key_input[pygame.K_LEFT]:
-        print("Reverse Left")
-        ser.write(b'9')
-
-    # simple orders
-    elif key_input[pygame.K_UP]:
-        print("Forward")
-        ser.write(b'1')
-
-    elif key_input[pygame.K_DOWN]:
-        print("Reverse")
-        ser.write(b'2')
-
-    elif key_input[pygame.K_RIGHT]:
-        print("Right")
-        ser.write(b'3')
-
-    elif key_input[pygame.K_LEFT]:
-        print("Left")
-        ser.write(b'4')
-
-    # exit
-    elif key_input[pygame.K_x] or key_input[pygame.K_q]:
-        print('Exit')
-        self.send_inst = False
-        ser.write(b'0')
-        self.ser.close()
-    else:
-        ser.write(b'0')
-
+def move_car(key_input,ser):
+	mins = 0
+	break_secs = 5
+	if key_input[pygame.KeyboardInterrupt] or key_input[pygame.K_x]:
+		print('Exit')
+		self.send_inst = False
+		ser.write(b'0')
+		self.ser.close()
+	elif:
+		t_end = time.time() + break_secs
+		while time.time() <= t_end:
+			ser.write(b'1')
+		t_end = time.time() + break_secs
+		while time.time() <= t_end:
+			ser.write(b'2')
+			
+			
 if __name__ == '__main__':
     RCTest()
+
+    Contact GitHub API Training Shop Blog About 
+
+    © 2017 GitHub, Inc. Terms Privacy Security Status Help 
+
