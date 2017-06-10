@@ -1,29 +1,3 @@
-
-Skip to content
-This repository
-
-    Pull requests
-    Issues
-    Marketplace
-    Gist
-
-    @pratvdev
-
-1
-1
-
-    4
-
-Sashulik/Detroit-Autonomous-Vehicle-Group
-Code
-Issues 0
-Pull requests 0
-Projects 0
-Wiki
-Detroit-Autonomous-Vehicle-Group/test/rc_control_test.py
-abfbfcc 7 days ago
-@kamal94 kamal94 Added a python script to find ports automatically on the device
-112 lines (89 sloc) 2.96 KB
 __author__ = 'zhengwang'
 
 import time
@@ -146,7 +120,7 @@ def move_car(key_input,ser):
 		self.send_inst = False
 		ser.write(b'0')
 		self.ser.close()
-	elif:
+	else:
 		t_end = time.time() + break_secs
 		while time.time() <= t_end:
 			ser.write(b'1')
@@ -157,8 +131,3 @@ def move_car(key_input,ser):
 			
 if __name__ == '__main__':
     RCTest()
-
-    Contact GitHub API Training Shop Blog About 
-
-    © 2017 GitHub, Inc. Terms Privacy Security Status Help 
-
